@@ -31,6 +31,7 @@ public class httpparser
         StringBuilder sb = new StringBuilder();
         String inLine = in.readLine();
         _request = inLine;
+        System.out.println(_request);
         while ((inLine = in.readLine()) != null && inLine.length() > 0) {
             sb.append(inLine).append(System.lineSeparator());
         }
@@ -49,7 +50,7 @@ public class httpparser
             return;
         _method = reqfields[0];
         //query params
-        if (reqfields[1].contains("\\?")){
+        if (reqfields[1].contains("?")){
             _path = reqfields[1].split("\\?")[0];
             _queryparams = new HashMap<String, String>();
             for (String qparam : reqfields[1].split("\\?")[1].split("&"))
@@ -61,8 +62,7 @@ public class httpparser
         //headers
         _headers = new HashMap<String, String>();
         for (String h : _headersstr.split(System.lineSeparator()))
-            System.out.println(h);
-            //_headers.put(h.split(":")[0].trim(), h.split(":")[1].trim());
+            _headers.put(h.split(":")[0].trim(), h.split(":")[1].trim());
     }
     private int getBodyLength(){
         for (String line : _headersstr.split(System.lineSeparator()))
@@ -78,6 +78,8 @@ public class httpparser
     public String getMethod(){return _method;}
     public String getHttpVersion(){return _httpversion;}
     public String getHeaders(){return _headersstr;}
+    public String getPath(){return _path;}
+    public Map<String, String> getQueryParams(){return _queryparams;}
 
     public String getInfo(){
         StringBuilder sb = new StringBuilder();
@@ -92,6 +94,13 @@ public class httpparser
         sb.append("path:\t\t");
         if (_path != null)
             sb.append(_path);
+        sb.append(System.lineSeparator());
+        sb.append("queryparams:\t\t");
+        if (_queryparams != null)
+            for (Map.Entry<String, String> element : _queryparams.entrySet())
+                sb.append(System.lineSeparator()).append("\t\t\t")
+                        .append(element.getKey()).append(" = ")
+                        .append(element.getValue());
         sb.append(System.lineSeparator());
         sb.append("headers:");
         if (_headers != null)
