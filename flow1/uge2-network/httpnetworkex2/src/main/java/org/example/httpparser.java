@@ -31,7 +31,6 @@ public class httpparser
         StringBuilder sb = new StringBuilder();
         String inLine = in.readLine();
         _request = inLine;
-        System.out.println(_request);
         while ((inLine = in.readLine()) != null && inLine.length() > 0) {
             sb.append(inLine).append(System.lineSeparator());
         }
@@ -71,8 +70,8 @@ public class httpparser
         return 0;
     }
     /*
-      get/set
-    */
+     get'ers
+     */
     public String getRequest(){return _request;}
     public String getBody(){return _body;}
     public String getMethod(){return _method;}
@@ -80,7 +79,9 @@ public class httpparser
     public String getHeaders(){return _headersstr;}
     public String getPath(){return _path;}
     public Map<String, String> getQueryParams(){return _queryparams;}
-
+    /*
+     print
+     */
     public String getInfo(){
         StringBuilder sb = new StringBuilder();
         sb.append("\t<<<http request info>>>" + System.lineSeparator() + "method:\t\t");
