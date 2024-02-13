@@ -1,0 +1,8 @@
+# ninja log v5
+1	77	1707771177134839936	CMakeFiles/gfxtest.dir/includes/getopt.c.o	19cf2d60a661c90c
+337	390	1707755492846563614	gfxtest	c52ea7a21352eff6
+0	337	1707755492794564580	CMakeFiles/gfxtest.dir/main.cpp.o	427120bdf6109a37
+2	54	1707771226841738658	CMakeFiles/gfxtest.dir/includes/tinycthread.c.o	621ad353c4151fcd
+3	127	1707771357966817831	CMakeFiles/gfxtest.dir/includes/glad_vulkan.c.o	eff3938bb2137d66
+2	193	1707771378050369336	CMakeFiles/gfxtest.dir/includes/glad_gl.c.o	3cd3f6312a463c7
+0	351	1707771378206365852	CMakeFiles/gfxtest.dir/main.cpp.o	427120bdf6109a37
