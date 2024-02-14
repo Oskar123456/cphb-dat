@@ -147,4 +147,25 @@ order; latest declaration.
 
 ## simple syntax-directed translator
 
+#### Grammar
 
+calculator:
+
+left-associative: + -
+left-associative: * / (higher presedence)
+
+factor -> digit | (expr)
+
+term   -> term * factor
+       -> term / factor
+       -> factor
+
+expr   -> expr + term
+       -> expr - term
+       -> term
+
+Hence:
+
+expr   -> expr + term | expr - term | term
+term   -> term * factor | term / factor | factor
+factor -> digit | (expr)
