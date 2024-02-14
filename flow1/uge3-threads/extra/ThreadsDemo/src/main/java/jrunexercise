@@ -1,0 +1,3 @@
+#! /bin/bash
+
+javac dk/cphbusiness/exercises/$1.java && java dk.cphbusiness.exercises.$1 && find . -type f -name '*.class' -exec rm {} +
