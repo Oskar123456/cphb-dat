@@ -1,0 +1,24 @@
+# ninja log v5
+0	104	1707771427081274405	src/CMakeFiles/glfw.dir/init.c.o	7d308a3aae90e446
+0	108	1707771427085274316	src/CMakeFiles/glfw.dir/context.c.o	4e1a30a9989b9031
+1	124	1707771427101273958	src/CMakeFiles/glfw.dir/monitor.c.o	9160c14d4df074e
+1	184	1707771427161272618	src/CMakeFiles/glfw.dir/input.c.o	eecdf46a8b6d9521
+104	187	1707771427165272529	src/CMakeFiles/glfw.dir/vulkan.c.o	8d7d0a37f48c6bac
+108	243	1707771427221271278	src/CMakeFiles/glfw.dir/window.c.o	38238bc9afe7bcd5
+124	260	1707771427237270920	src/CMakeFiles/glfw.dir/x11_init.c.o	67280ea883503a96
+184	300	1707771427277270028	src/CMakeFiles/glfw.dir/x11_monitor.c.o	2bef3c78888db330
+243	309	1707771427285269849	src/CMakeFiles/glfw.dir/xkb_unicode.c.o	99f060c39588f186
+260	330	1707771427309269313	src/CMakeFiles/glfw.dir/posix_time.c.o	536ff8d31b24c822
+300	368	1707771427345268509	src/CMakeFiles/glfw.dir/posix_thread.c.o	983ab455ae0ea202
+309	411	1707771427389267526	src/CMakeFiles/glfw.dir/glx_context.c.o	a90c7f582e532df0
+187	426	1707771427405267170	src/CMakeFiles/glfw.dir/x11_window.c.o	537a6f514041298
+330	436	1707771427413266991	src/CMakeFiles/glfw.dir/egl_context.c.o	a21083a3744d48c9
+368	459	1707771427437266455	src/CMakeFiles/glfw.dir/osmesa_context.c.o	b4149ba042044bcb
+411	508	1707771427485265383	src/CMakeFiles/glfw.dir/linux_joystick.c.o	ef94c7e74149ec70
+426	509	1707771427489265293	examples/CMakeFiles/boing.dir/boing.c.o	3ca79414e4c32685
+508	524	1707771427501265026	src/libglfw3.a	30025d3d9f1d9d33
+436	573	1707771427553263864	examples/CMakeFiles/boing.dir/__/deps/glad_gl.c.o	76369835a4b21971
+573	616	1707771427593262971	examples/boing	5eb6d3481afaa77f
+0	213	1708187803421647396	examples/CMakeFiles/simple.dir/simple.c.o	de0ca2153c9942b0
+1	265	1708187803473646439	examples/CMakeFiles/simple.dir/__/deps/glad_gl.c.o	5c63af56a8357351
+265	326	1708187803533645335	examples/simple	ff71b8cdd02635b9

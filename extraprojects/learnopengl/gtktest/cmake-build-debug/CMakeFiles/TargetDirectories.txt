@@ -1,0 +1,3 @@
+/home/oskar/cphb-dat/extraprojects/learnopengl/gtktest/cmake-build-debug/CMakeFiles/gtktest.dir
+/home/oskar/cphb-dat/extraprojects/learnopengl/gtktest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/oskar/cphb-dat/extraprojects/learnopengl/gtktest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
