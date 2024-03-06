@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/install_manifest.txt\"")
+if (NOT EXISTS "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: \"/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/install_manifest.txt\"")
 endif()
 
-file(READ "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/install_manifest.txt" files)
+file(READ "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

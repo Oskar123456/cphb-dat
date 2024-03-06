@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="top">
+
+  <img src="../images/bornholmtraktor.jpg" alt="">
+
+</div>
+
+<div>
+  <header>
+    Carpool Bornholm
+  </header>
+
+  <p>
+    Find nogen at køre sammen med
+  </p>
+</div>
+
+<form action="result.html">
+
+<div id="dates-elect">
+  <label for="start">Start date:</label>
+  <input type="date" id="start" name="trip-start" value="2024-03-06" min="2024-03-06" max="2024-06-06" />
+</div>
+
+<div id="client-type">
+<div>
+  <fieldset>
+    <legend>Vælg:</legend>
+
+    <div>
+      <input type="radio" id="chauf" name="clienttype" value="chauf" checked />
+      <label for="chauf">Chauffeur</label>
+    </div>
+
+    <div>
+      <input type="radio" id="pass" name="clienttype" value="pass" />
+      <label for="pass">Passager</label>
+    </div>
+
+  </fieldset>
+</div>
+</div>
+
+<div id="srcdest">
+  <label for="src-select">Fra:</label>
+
+  <label for="src-select"></label><select name="srcsel" id="src-select" required>
+    <option value="">Vælg venligst, hvor du kommer fra</option>
+    <option value="Rønne">Rønne</option>
+    <option value="Åkirkeby">Åkirkeby</option>
+    <option value="Gudhjem">Gudhjem</option>
+    <option value="Nexø">Nexø</option>
+  </select>
+
+  <label for="dest-select">Til:</label>
+
+  <label for="dest-select"></label><select name="destsel" id="dest-select" required>
+    <option value="">Vælg venligst, hvor du skal til</option>
+    <option value="Rønne">Rønne</option>
+    <option value="Åkirkeby">Åkirkeby</option>
+    <option value="Gudhjem">Gudhjem</option>
+    <option value="Nexø">Nexø</option>
+  </select>
+
+</div>
+
+<div id="confirm">
+
+  <a href="result.html">
+    <input type="submit" value="Bekræft">
+  </a>
+
+</div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+
+
+clang src/${1}.c -o out/${1} -lGLESv2 -lGL -lglfw -lm && ./out/${1}

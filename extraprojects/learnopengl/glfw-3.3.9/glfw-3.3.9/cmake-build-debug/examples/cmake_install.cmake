@@ -1,4 +1,4 @@
-# Install script for directory: /home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/examples
+# Install script for directory: /home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

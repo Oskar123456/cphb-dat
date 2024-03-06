@@ -1,4 +1,4 @@
-# Install script for directory: /home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9
+# Install script for directory: /home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,32 +44,32 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/cmake_install.cmake")
+  include("/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/examples/cmake_install.cmake")
+  include("/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/examples/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/tests/cmake_install.cmake")
+  include("/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/tests/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/docs/cmake_install.cmake")
+  include("/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/docs/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/include/GLFW" FILES_MATCHING REGEX "/glfw3\\.h$" REGEX "/glfw3native\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/include/GLFW" FILES_MATCHING REGEX "/glfw3\\.h$" REGEX "/glfw3native\\.h$")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3" TYPE FILE FILES
-    "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/glfw3Config.cmake"
-    "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/glfw3ConfigVersion.cmake"
+    "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/glfw3Config.cmake"
+    "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/glfw3ConfigVersion.cmake"
     )
 endif()
 
@@ -77,7 +77,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3/glfw3Targets.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3/glfw3Targets.cmake"
-         "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/CMakeFiles/Export/58b37b387a34f8a6c7ff51065ade4e63/glfw3Targets.cmake")
+         "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/CMakeFiles/Export/58b37b387a34f8a6c7ff51065ade4e63/glfw3Targets.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3/glfw3Targets-*.cmake")
       if(_cmake_old_config_files)
@@ -90,14 +90,14 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3" TYPE FILE FILES "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/CMakeFiles/Export/58b37b387a34f8a6c7ff51065ade4e63/glfw3Targets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3" TYPE FILE FILES "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/CMakeFiles/Export/58b37b387a34f8a6c7ff51065ade4e63/glfw3Targets.cmake")
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3" TYPE FILE FILES "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/CMakeFiles/Export/58b37b387a34f8a6c7ff51065ade4e63/glfw3Targets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/cmake/glfw3" TYPE FILE FILES "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/CMakeFiles/Export/58b37b387a34f8a6c7ff51065ade4e63/glfw3Targets-debug.cmake")
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/pkgconfig" TYPE FILE FILES "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/glfw3.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/pkgconfig" TYPE FILE FILES "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/src/glfw3.pc")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -108,5 +108,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/oskar/Downloads/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/oskar/cphb-dat/extraprojects/learnopengl/glfw-3.3.9/glfw-3.3.9/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
