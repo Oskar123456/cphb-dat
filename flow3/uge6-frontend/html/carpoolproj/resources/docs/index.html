@@ -9,25 +9,34 @@
 
 <div id="top">
 
-  <img src="../images/bornholmtraktor.jpg" alt="">
+  <img src="../images/bornholm.jpg" alt="">
 
 </div>
 
-<div>
-  <header>
+<div id="titlebox">
+  <h1 id="maintitle">
     Carpool Bornholm
-  </header>
+  </h1>
 
-  <p>
+  <p id="subtitle">
     Find nogen at køre sammen med
   </p>
 </div>
 
 <form action="result.html">
 
-<div id="dates-elect">
-  <label for="start">Start date:</label>
+<div id="name">
+  <label for="fname">Navn:</label>
+  <input type="text" id="fname" name="fname" required>
+</div>
+
+<div id="date-select">
+  <label for="start">Vælg dato:</label>
   <input type="date" id="start" name="trip-start" value="2024-03-06" min="2024-03-06" max="2024-06-06" />
+
+  <label for="appt">Vælg tidspunkt:</label>
+  <input type="time" id="appt" name="departtime" min="07:00" max="19:00" required />
+
 </div>
 
 <div id="client-type">
@@ -49,10 +58,10 @@
 </div>
 </div>
 
-<div id="srcdest">
+<div id="srcDestBox">
   <label for="src-select">Fra:</label>
 
-  <label for="src-select"></label><select name="srcsel" id="src-select" required>
+  <label for="src-select"></label><select name="srcsel" id="src-select" class="srcDestDropDown" required>
     <option value="">Vælg venligst, hvor du kommer fra</option>
     <option value="Rønne">Rønne</option>
     <option value="Åkirkeby">Åkirkeby</option>
@@ -62,7 +71,7 @@
 
   <label for="dest-select">Til:</label>
 
-  <label for="dest-select"></label><select name="destsel" id="dest-select" required>
+  <label for="dest-select"></label><select name="destsel" id="dest-select" class="srcDestDropDown" required>
     <option value="">Vælg venligst, hvor du skal til</option>
     <option value="Rønne">Rønne</option>
     <option value="Åkirkeby">Åkirkeby</option>
@@ -72,7 +81,7 @@
 
 </div>
 
-<div id="confirm">
+<div id="confirm" class="confbutton">
 
   <a href="result.html">
     <input type="submit" value="Bekræft">

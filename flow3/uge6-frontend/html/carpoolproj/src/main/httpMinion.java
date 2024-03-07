@@ -24,58 +24,28 @@ public class httpMinion implements HttpHandler {
     exchange.sendResponseHeaders(200, response.getBytes().length);
     out.write(response.getBytes());*/
     String method = exchange.getRequestMethod();
-    switch (method) { // valid methods are upper-case
-      case "GET":
-        handleGet(exchange);
-        break;
-      default:
-        throw new IllegalStateException("Unexpected value: " + method);
+    //System.out.println(" >>> " + method + " RECEIVED...");
+    // valid methods are upper-case
+    if (method.equals("GET")) {
+      handleGet(exchange);
+    } else {
+      throw new IllegalStateException("Unexpected value: " + method);
     }
   }
 
   private void handleGet(HttpExchange exchange) {
-    String resFolder = System.getProperty("user.dir") + "/resources";
+    int statusCode;
 
-    //locate the right folder
-
-    String reqMediaType = "Sec-Fetch-Dest";
-    Map<String, List<String>> headers = exchange.getRequestHeaders();
-    if (headers.containsKey(reqMediaType)){
-      for (String property : headers.get(reqMediaType)){
-        if (property.equals("style")){
-          //resFolder += "/css";
-          break;
-        }
-        if (property.equals("image")){
-          //resFolder += "/images";
-          break;
-        }
-        if (property.equals("document")){
-          resFolder += "/docs";
-          break;
-        }
-      }
-    }
-
-
-    int statusCode = 200;
-    byte[] data = null;
-    System.out.println(" >>> GET RECEIVED...");
-    String resPath = resFolder + exchange.getRequestURI().getPath();
-    System.out.println(" >>> File requested: " + resPath);
-    OutputStream out = exchange.getResponseBody();
-    if (exchange.getRequestURI().toString().equals("/")) {
-      resPath += "index.html";
-    }
-    try {
-      System.out.println("fetching " + resPath);
-      data = Files.readAllBytes(Paths.get(resPath));
-    } catch (IOException e) {
-      System.out.println("Could not find " + resPath);
+    byte[] responseBody = contentGenerator.fetchContent(
+      exchange.getRequestURI().getPath(),
+      exchange.getRequestURI().getQuery());
+    // TODO: send 404 html page
+    if (responseBody == null)
       statusCode = 404;
-    }
+    else
+      statusCode = 200;
     try {
-      sendResponse(exchange, statusCode, data);
+      sendResponse(exchange, statusCode, responseBody);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
@@ -83,7 +53,6 @@ public class httpMinion implements HttpHandler {
 
   private void sendResponse(HttpExchange exchange, int statusCode, byte[] data) throws IOException {
     if (data != null) {
-      //System.out.println(">>>Sending:\n" + new String(data));
       exchange.sendResponseHeaders(statusCode, data.length);
       OutputStream out = exchange.getResponseBody();
       out.write(data);

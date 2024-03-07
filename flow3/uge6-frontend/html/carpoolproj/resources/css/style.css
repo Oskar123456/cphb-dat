@@ -1,17 +1,132 @@
+html {
+  max-width: 700px;
+  margin: auto;
+  font-family: "Fira Mono Medium", serif;
+}
 
+div {
+  display: flex;
+/*  border: 2px dotted red;*/
+  background-color:#F0F8FF;
+  border-radius: 10px;
+  img {
+    max-width: 100%;
+    border-radius: 62px;
+  }
+}
+
+div + div {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #top {
-  display: flex;
-  justify-content: center;
-  img {
-    display: flex;
-    justify-content: center;
+  background-color: transparent;
+  border: 10px red;
+}
+
+#titlebox {
+  flex-direction: column;
+}
+
+#maintitle {
+  text-align: left;
+  font-size: 2rem;
+  margin: 10px;
+  color: rosybrown;
+}
+
+#subtitle {
+  text-align: left;
+  font-size: 1rem;
+  margin: 10px;
+}
+
+#name {
+  padding: 10px;
+}
+
+#date-select {
+  padding: 10px;
+  justify-content: space-between;
+}
+
+#client-type {
+  padding: 10px;
+}
+
+#srcDestBox {
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.srcDestDropDown {
+  position: relative;
+  font-family: "Fira Mono", monospace ;
+  border-radius: 12px;
+}
+
+.confbutton {
+  padding: 10px;
+  justify-content: flex-end;
+  font-family: "Fira Code Medium", serif;
+}
+
+input[type=submit] {
+  background-color: rosybrown;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 690px) {
+  #srcDestBox {
+    flex-direction: column;
+  }
+  #date-select {
+    flex-direction: column;
+  }
+}
+
+#tripsel {
+  flex-direction: column;
+  padding: 10px;
+  width: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#tripselName {
+  flex-direction: column;
+  padding: 10px;
+  width: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#confirmtrip {
+  input[type=submit] {
+    background-color: mediumseagreen;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
     border-radius: 8px;
   }
 }
+
+table, th, td {
+  border: 1px solid;
+  width: 100%;
+  margin-bottom: 10px;
+}
+

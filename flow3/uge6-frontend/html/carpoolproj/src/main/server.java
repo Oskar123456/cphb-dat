@@ -14,12 +14,24 @@ public class server {
     s.serve();
   }
 
-  int port = 8080;
+  /*
+  * database vars
+  * */
+  String username = "postgres";
+  String pwd = "postgres";
+  String url = "jdbc:postgresql://localhost:5432/carpool";
+
+  /*
+  * server vars
+  * */
+  int port = 8088;
 
   HttpServer httpServer;
   ExecutorService jobQueue;
 
   public server() throws IOException {
+    dbConnector.init(username, pwd, url);
+
     int nCores = Runtime.getRuntime().availableProcessors();
     jobQueue = Executors.newFixedThreadPool(nCores);
 
