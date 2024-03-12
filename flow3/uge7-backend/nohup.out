@@ -1,0 +1,118 @@
+CompileCommand: exclude com/intellij/openapi/vfs/impl/FilePartNodeRoot.trieDescend bool exclude = true
+2024-03-12 16:29:03,179 [    410]   WARN - #c.i.s.ComponentManagerImpl - `preload=true` must be used only for core services (service=com.intellij.ae.database.core.baseEvents.fus.AddStatisticsEventLogListenerTemporary, plugin=com.jetbrains.ae.database)
+2024-03-12 16:29:03,179 [    410]   WARN - #c.i.s.ComponentManagerImpl - `preload=true` must be used only for core services (service=com.jetbrains.rdserver.statistics.BackendStatisticsManager, plugin=com.jetbrains.codeWithMe)
+2024-03-12 16:29:04,106 [   1337]   WARN - #c.i.s.ComponentManagerImpl - com.intellij.psi.search.FilenameIndex initializer requests com.intellij.ide.plugins.PluginUtil instance
+2024-03-12 16:29:04,220 [   1451]   WARN - #c.i.i.u.UITheme - *.arc has numeric value but specified as string
+2024-03-12 16:29:05,069 [   2300]   WARN - #c.i.s.ComponentManagerImpl - com.intellij.lang.javascript.psi.jsdoc.impl.JSDocCustomTags initializer requests com.intellij.lang.javascript.JSDisposable instance
+2024-03-12 16:29:05,504 [   2735]   WARN - #c.i.s.ComponentManagerImpl - com.intellij.psi.LanguageSubstitutors initializer requests com.intellij.psi.LanguageSubstitutors instance
+2024-03-12 16:29:05,516 [   2747]   WARN - #c.i.s.ComponentManagerImpl - com.maddyhome.idea.vim.api.Options initializer requests com.maddyhome.idea.vim.api.SystemInfoService instance
+2024-03-12 16:29:05,582 [   2813]   WARN - #c.i.s.ComponentManagerImpl - org.zmlx.hg4idea.provider.HgChangeProvider initializer requests com.intellij.openapi.vcs.FileStatusFactory instance
+2024-03-12 16:29:05,650 [   2881]   WARN - #c.i.o.v.n.p.d.e.DurableEnumeratorFactory - [enumerator.mmapped]: .valueToId map is out-of-sync with .valuesLog data -> rebuilding it
+2024-03-12 16:29:06,335 [   3566]   WARN - #c.i.s.ComponentManagerImpl - com.intellij.psi.codeStyle.CodeStyleSettingsCustomizable initializer requests com.intellij.util.LocaleSensitiveApplicationCacheService instance
+2024-03-12 16:29:08,037 [   5268]   WARN - #c.i.s.ComponentManagerImpl - com.intellij.database.console.session.DatabaseSessionManager initializer requests com.intellij.database.console.session.DatabaseSessionViewService instance
+2024-03-12 16:29:08,901 [   6132]   WARN - #o.j.p.t.TextMateService - Cannot find referenced file `./language-configuration.json` in bundle `/home/oskar/Programs/idea-IU-233.14475.28/plugins/textmate/lib/bundles/mdx`
+2024-03-12 16:29:09,605 [   6836]   WARN - #c.i.s.ComponentManagerImpl - com.maddyhome.idea.vim.state.VimStateMachine$Companion initializer requests com.maddyhome.idea.vim.api.VimKeyGroup instance
+2024-03-12 16:29:09,958 [   7189]   WARN - #c.i.i.s.p.i.BundledSharedIndexPostStartupActivity - Skipped 1 pre-built shared indexes: bundled-js-predefined-1d06a55b98c1-985749b364ce-JavaScript-IU-233.14475.28
+2024-03-12 16:29:10,140 [   7371]   WARN - #o.j.i.maven - updateAllMavenProjects started: false false false
+2024-03-12 16:29:10,215 [   7446]   WARN - #o.j.i.maven - updateAllMavenProjects finished: false false false
+2024-03-12 16:29:10,433 [   7664]   WARN - #c.i.s.ComponentManagerImpl - com.maddyhome.idea.vim.helper.VimStandalonePluginUpdateChecker initializer requests com.maddyhome.idea.vim.helper.VimStandalonePluginUpdateChecker instance
+2024-03-12 16:29:11,669 [   8900]   WARN - #c.i.o.a.i.ActionUpdater - 393 ms to grab EDT for ReviewModeActionGroup#Update@EditorInspectionsToolbar (org.jetbrains.plugins.gitlab.mergerequest.ui.editor.action.ReviewModeActionGroup)
+2024-03-12 16:29:11,670 [   8901]   WARN - #c.i.o.a.i.ActionUpdater - 393 ms to grab EDT for JoinCallAction#Update@MainToolbar (com.jetbrains.rd.platform.codeWithMe.telephony.JoinCallAction)
+2024-03-12 16:30:03,126 [  60357]   WARN - #c.i.u.x.Binding - no accessors for com.intellij.ide.util.TipsUsageManager$State
+2024-03-12 16:31:19,564 [ 136795]   WARN - org.apache.velocity.deprecation - configuration key 'resource.loader' has been deprecated in favor of 'resource.loaders'
+2024-03-12 16:31:19,565 [ 136796]   WARN - org.apache.velocity.deprecation - configuration key 'includes.resource.loader.instance' has been deprecated in favor of 'resource.loader.includes.instance'
+2024-03-12 16:31:20,735 [ 137966]   WARN - #c.i.u.x.Binding - no accessors for org.jetbrains.idea.maven.project.MavenHomeType
+2024-03-12 16:31:21,200 [ 138431]   WARN - #c.i.i.s.p.i.BundledSharedIndexPostStartupActivity - Skipped 1 pre-built shared indexes: bundled-js-predefined-1d06a55b98c1-985749b364ce-JavaScript-IU-233.14475.28
+2024-03-12 16:31:21,598 [ 138829]   WARN - #o.j.i.maven - Trying to add the same listener twice
+2024-03-12 16:31:21,614 [ 138845]   WARN - #o.j.i.maven - updateAllMavenProjects started: false true false
+2024-03-12 16:31:21,968 [ 139199]   WARN - #c.i.o.a.i.ActionUpdater - 311 ms to grab EDT for JoinCallAction#Update@MainToolbar (com.jetbrains.rd.platform.codeWithMe.telephony.JoinCallAction)
+2024-03-12 16:31:21,972 [ 139203]   WARN - #c.i.o.a.i.ActionUpdater - 314 ms to grab EDT for ToolWindowHeader$2#Update@ToolwindowTitle (com.intellij.toolWindow.ToolWindowHeader$2)
+2024-03-12 16:31:21,991 [ 139222]   WARN - #c.i.o.a.i.ActionUpdater - 330 ms to grab EDT for JoinCallAction#Update@MainToolbar (com.jetbrains.rd.platform.codeWithMe.telephony.JoinCallAction)
+2024-03-12 16:31:21,992 [ 139223]   WARN - #c.i.o.a.i.ActionUpdater - 331 ms to grab EDT for EditorMarkupModelImpl$TrafficLightAction#Update@EditorInspectionsToolbar (com.intellij.openapi.editor.impl.EditorMarkupModelImpl$TrafficLightAction)
+2024-03-12 16:31:21,992 [ 139223]   WARN - #c.i.o.a.i.ActionUpdater - 331 ms to grab EDT for EditorMarkupModelImpl$1#Update@EditorInspectionsToolbar (com.intellij.openapi.editor.impl.EditorMarkupModelImpl$1)
+2024-03-12 16:31:21,992 [ 139223]   WARN - #c.i.o.a.i.ActionUpdater - 326 ms to grab EDT for FontEditorPreview$RestorePreviewTextAction#Update@ContextToolbar (com.intellij.application.options.colors.FontEditorPreview$RestorePreviewTextAction)
+2024-03-12 16:31:21,992 [ 139223]   WARN - #c.i.o.a.i.ActionUpdater - 326 ms to grab EDT for FontEditorPreview$ToggleBoldFontAction#Update@ContextToolbar (com.intellij.application.options.colors.FontEditorPreview$ToggleBoldFontAction)
+2024-03-12 16:31:21,993 [ 139224]   WARN - #c.i.o.a.i.ActionUpdater - 327 ms to grab EDT for ReviewModeActionGroup#Update@EditorInspectionsToolbar (org.jetbrains.plugins.gitlab.mergerequest.ui.editor.action.ReviewModeActionGroup)
+2024-03-12 16:31:24,094 [ 141325]   WARN - #o.j.i.maven - updateAllMavenProjects finished: false true false
+2024-03-12 16:31:24,095 [ 141326]   WARN - #o.j.i.maven - updateAllMavenProjects started: true true true
+2024-03-12 16:31:24,194 [ 141425]   WARN - #o.j.i.maven - updateAllMavenProjects finished: true true true
+2024-03-12 16:31:43,356 [ 160587]   WARN - #o.j.i.maven - updateMavenProjects started: true true true 1 0
+2024-03-12 16:31:49,005 [ 166236]   WARN - #o.j.i.maven - updateMavenProjects finished: true true true 1 0
+2024-03-12 16:32:17,328 [ 194559]   WARN - #o.j.i.maven - updateAllMavenProjects started: true true true
+2024-03-12 16:32:17,564 [ 194795]   WARN - #o.j.i.maven - updateAllMavenProjects finished: true true true
+2024-03-12 16:32:48,367 [ 225598]   WARN - #c.i.o.o.e.ConfigurableExtensionPointUtil - ignore deprecated groupId: language for id: preferences.language.Kotlin.scripting
+2024-03-12 16:34:28,918 [ 326149]   WARN - #c.i.o.o.e.ConfigurableExtensionPointUtil - ignore deprecated groupId: language for id: preferences.language.Kotlin.scripting
+2024-03-12 16:36:16,158 [ 433389]   WARN - #c.i.i.u.UITheme - *.arc has numeric value but specified as string
+2024-03-12 16:36:32,114 [ 449345]   WARN - #c.i.o.o.e.ConfigurableExtensionPointUtil - ignore deprecated groupId: language for id: preferences.language.Kotlin.scripting
+2024-03-12 16:37:16,374 [ 493605]   WARN - #c.i.o.a.i.ActionUpdater - 387 ms to grab EDT for ToolWindowHeader$2#Update@ToolwindowTitle (com.intellij.toolWindow.ToolWindowHeader$2)
+2024-03-12 16:37:44,024 [ 521255]   WARN - #c.i.o.o.e.ConfigurableExtensionPointUtil - ignore deprecated groupId: language for id: preferences.language.Kotlin.scripting
+2024-03-12 16:54:26,562 [1523793]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 16:58:41,869 [1779100]   WARN - org.apache.velocity.deprecation - configuration key 'resource.loader' has been deprecated in favor of 'resource.loaders'
+2024-03-12 16:58:41,870 [1779101]   WARN - org.apache.velocity.deprecation - configuration key 'includes.resource.loader.class' has been deprecated in favor of 'resource.loader.includes.class'
+2024-03-12 17:07:09,813 [2287044] SEVERE - #c.i.o.a.i.FlushQueue - Cannot invoke "com.intellij.openapi.ui.popup.JBPopup.isDisposed()" because "this.myPopup" is null
+java.lang.NullPointerException: Cannot invoke "com.intellij.openapi.ui.popup.JBPopup.isDisposed()" because "this.myPopup" is null
+	at com.intellij.ui.LightweightHint.getLocationOn(LightweightHint.java:450)
+	at com.intellij.codeInsight.hint.HintManagerImpl.doShowInGivenLocation(HintManagerImpl.java:234)
+	at com.intellij.codeInsight.hint.HintManagerImpl.adjustEditorHintPosition(HintManagerImpl.java:311)
+	at com.intellij.codeInsight.hint.ParameterInfoController.lambda$updateComponent$1(ParameterInfoController.java:249)
+	at com.intellij.codeInsight.hint.ParameterInfoController.lambda$executeUpdateParameterInfo$6(ParameterInfoController.java:285)
+	at com.intellij.codeInsight.hint.ParameterInfoTaskRunnerUtil.lambda$runTask$0(ParameterInfoTaskRunnerUtil.java:70)
+	at com.intellij.openapi.application.impl.NonBlockingReadActionImpl$Submission.lambda$safeTransferToEdt$7(NonBlockingReadActionImpl.java:717)
+	at com.intellij.openapi.application.TransactionGuardImpl.runWithWritingAllowed(TransactionGuardImpl.java:209)
+	at com.intellij.openapi.application.TransactionGuardImpl.access$100(TransactionGuardImpl.java:22)
+	at com.intellij.openapi.application.TransactionGuardImpl$1.run(TransactionGuardImpl.java:191)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:843)
+	at com.intellij.openapi.application.impl.ApplicationImpl$4.run(ApplicationImpl.java:463)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithEnabledImplicitRead(RwLockHolder.kt:75)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithImplicitRead(RwLockHolder.kt:67)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWithImplicitRead(ApplicationImpl.java:1436)
+	at com.intellij.openapi.application.impl.FlushQueue.doRun(FlushQueue.java:82)
+	at com.intellij.openapi.application.impl.FlushQueue.runNextEvent(FlushQueue.java:124)
+	at com.intellij.openapi.application.impl.FlushQueue.flushNow(FlushQueue.java:44)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:792)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:739)
+	at java.desktop/java.awt.EventQueue$3.run(EventQueue.java:733)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:761)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.kt:695)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$12(IdeEventQueue.kt:589)
+	at com.intellij.openapi.application.impl.RwLockHolder.runWithoutImplicitRead(RwLockHolder.kt:44)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:589)
+	at com.intellij.ide.IdeEventQueue.access$_dispatchEvent(IdeEventQueue.kt:72)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:355)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1$1.compute(IdeEventQueue.kt:354)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:793)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:354)
+	at com.intellij.ide.IdeEventQueue$dispatchEvent$processEventRunnable$1$1.invoke(IdeEventQueue.kt:349)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$1(IdeEventQueue.kt:1014)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:106)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:1014)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$7(IdeEventQueue.kt:349)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runIntendedWriteActionOnCurrentThread(ApplicationImpl.java:848)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:391)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+2024-03-12 17:07:09,820 [2287051] SEVERE - #c.i.o.a.i.FlushQueue - IntelliJ IDEA 2023.3.4  Build #IU-233.14475.28
+2024-03-12 17:07:09,820 [2287051] SEVERE - #c.i.o.a.i.FlushQueue - JDK: 17.0.10; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2024-03-12 17:07:09,820 [2287051] SEVERE - #c.i.o.a.i.FlushQueue - OS: Linux
+2024-03-12 17:07:09,820 [2287051] SEVERE - #c.i.o.a.i.FlushQueue - Last Action: EditorChooseLookupItem
+2024-03-12 17:09:11,766 [2408997]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:10:48,077 [2505308]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:13:01,742 [2638973]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:13:46,274 [2683505]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:14:05,800 [2703031]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:14:21,327 [2718558]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:18:53,649 [2990880]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:19:58,285 [3055516]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:21:13,310 [3130541]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:24:04,697 [3301928]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:27:17,501 [3494732]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 17:28:30,543 [3567774]   WARN - #o.j.k.i.s.r.KotlinCompilerReferenceIndexStorage - kotlin-data-container is not found
+2024-03-12 18:33:36,116 [7473347]   WARN - #o.j.i.maven - Maven pulling download listener stopped
+2024-03-12 18:33:36,116 [7473347]   WARN - #o.j.i.maven - Maven pulling logger stopped

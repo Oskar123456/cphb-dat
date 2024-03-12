@@ -195,7 +195,7 @@ public class contentGenerator {
       for (student s : studentList) {
         if (s.id == t.chauffeur) name = s.name;
       }
-      sb.append("<div> <input type=\"radio\" id=\"t\" name=\"tripsel\" value=\"" + t.id + "\"" + firstChecked + "/>");
+      sb.append("<div> <input type=\"radio\" id=\"t\" name=\"tripsel\" value=\"" + t.id + "\" " + firstChecked + " />");
       sb.append("<label for=\"t\">d. " + t.date + " kl. " + t.time + " fra " + t.src + " til " + t.dest + " med " + name + "</label>");
       sb.append("</div>");
       firstChecked = "";
@@ -204,7 +204,7 @@ public class contentGenerator {
 
     if (stud != null) {
       sb.append("<div> <input type=\"radio\" id=\"s\" name=\"tripselName\" value=\""
-        + stud.id + "\"" + "checked" + "/>");
+        + stud.id + "\"" + " checked " + "/>");
       sb.append("<label for=\"s\">Passager: " + stud.name + "</label>");
       sb.append("</div>");
     }

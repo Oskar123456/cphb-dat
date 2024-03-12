@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<h1>Welcome to the Javalin / Thymeleaf demo</h1>
+
+<p>This is your first web application in this world</p>
+
+<h1>Students</h1>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>pwd</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Student : ${studentList}">
+        <td th:text="${Student.getId()}">ID</td>
+        <td th:text="${Student.getName()}">name</td>
+        <td th:text="${Student.getPwd()}">pwd</td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="chatbox">
+    <p th:each="ChatMsg : ${chatMsgs}">
+        <span id="chatboxID" th:text="${ChatMsg.userName}"></span>
+        <span id="chatboxTimeStamp" th:text="${ChatMsg.time}"></span>
+        <span id="chatboxContent" th:text="${ChatMsg.content}"></span>
+    </p>
+</div>
+
+<div id="msgbox">
+    <form action="index.html">
+        <label for="msgboxcontent"></label>
+        <input id="msgboxcontent" type="text" name="msgboxcontent">
+        <input id="msgboxsend" type="submit" value="Submit">
+    </form>
+</div>
+
+
+</body>
+</html>
