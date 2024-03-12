@@ -39,35 +39,17 @@ public class Main {
 
         app.get("/", ctx -> formatIndex(ctx));
         app.get("/index.html", ctx -> formatIndex(ctx));
-
-
-
-        /*int elmLen = 10;*/
-/*
-        System.out.println(fixedLengthString("id", elmLen) + "|" +
-                fixedLengthString("name", elmLen) + "|" +
-                fixedLengthString("pwd", elmLen));
-        for (Student s : studentList){
-            String id = fixedLengthString(String.valueOf(s.getId()), elmLen);
-            String name = fixedLengthString(s.getName(), elmLen);
-            String pwd = fixedLengthString(s.getPwd(), elmLen);
-            System.out.println(id + "|" + name + "|" + pwd);
-        }*/
     }
 
     private static void formatIndex(Context ctx) throws DatabaseException {
         String msgBoxContent = ctx.queryParam("msgboxcontent");
-        System.out.println(msgBoxContent);
         if (msgBoxContent != null && !msgBoxContent.isEmpty()) {
             int retval = DBMapper.insertChatMsg(connectionPool, msgBoxContent, "niels1");
-            System.out.println(retval);
         }
 
         List<ChatMsg> chatMsgsList = DBMapper.getAllChatMsgs(connectionPool);
-        Collections.reverse(chatMsgsList);
-        for (ChatMsg msg : chatMsgsList) {
-            System.out.println(msg.content());
-        }
+        Collections.reverse(chatMsgsList); //to pull scrollbar to the bottom, we reverse here and in CSS
+
         ctx.attribute("chatMsgs", chatMsgsList);
         ctx.render("index.html");
     }

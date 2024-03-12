@@ -73,7 +73,6 @@ public class DBMapper {
                 stmt.setString(1, msg.userName());
                 stmt.setTimestamp(2, msg.time());
                 stmt.setString(3, msg.content());
-                System.out.println(stmt.toString());
                 stmt.executeUpdate();
                 var keySet = stmt.getGeneratedKeys();
                 if (keySet.next())
