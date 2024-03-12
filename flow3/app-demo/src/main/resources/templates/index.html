@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+
+<body>
+
+<h1>Welcome to the 2nd hand shop</h1>
+
+<img src="../public/images/shopicon.png" th:src="@{/images/shopicon.png}" width="25%"/>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${itemList}">
+        <td th:text="${item.id}">id</td>
+        <td th:text="${item.title}">title</td>
+        <td th:text="${item.price}">price</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
