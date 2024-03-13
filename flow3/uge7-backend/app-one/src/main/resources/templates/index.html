@@ -5,31 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
-</head>
 
 <body>
 
-<h1>Welcome to the Javalin / Thymeleaf demo</h1>
-
-<p>This is your first web application in this world</p>
-
-<h1>Students</h1>
-<table>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>pwd</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="Student : ${studentList}">
-        <td th:text="${Student.getId()}">ID</td>
-        <td th:text="${Student.getName()}">name</td>
-        <td th:text="${Student.getPwd()}">pwd</td>
-    </tr>
-    </tbody>
-</table>
+<h1>Welcome to chatbox</h1>
 
 <div id="chatbox">
     <p th:each="ChatMsg : ${chatMsgs}">

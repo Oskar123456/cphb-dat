@@ -1,18 +1,19 @@
 package app.persistence;
 
 import app.entities.ChatMsg;
+import app.entities.ChatUser;
 import app.entities.Student;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
 
 public class DBMapper {
-    public static List<Student> getAllStudents(ConnectionPool connectionPool) throws DatabaseException
+
+    public static HashMap<String, String> getAllChatUsers(ConnectionPool connectionPool) throws DatabaseException
     {
-        List<Student> userList = new ArrayList<>();
-        String sql = "select * from students";
+        HashMap<String, String> userList = new HashMap<>();
+        String sql = "select * from users";
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))
@@ -21,11 +22,9 @@ public class DBMapper {
 
                 while (rs.next())
                 {
-                    int ID = rs.getInt("id");
-                    String userName = rs.getString("name");
-                    String password = rs.getString("password");
-                    Student user = new Student(ID, userName, password);
-                    userList.add(user);
+                    String id = rs.getString("id");
+                    String pwd = rs.getString("pwd");
+                    userList.put(id, pwd);
                 }
             }
         }
@@ -85,4 +84,23 @@ public class DBMapper {
             throw new DatabaseException(ex, "Could not insert chat message");
         }
     }
+
+
+    public static void insertChatUser(ConnectionPool connectionPool,
+                                    String userName,
+                                    String pwd) throws DatabaseException {
+        ChatUser user = new ChatUser(userName, pwd);
+        String sql = "INSERT INTO users (id, pwd) VALUES (?, ?)";
+        try (Connection connection = connectionPool.getConnection()){
+            try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+                stmt.setString(1, user.name);
+                stmt.setString(2, user.pwd);
+                stmt.executeUpdate();
+            }
+        }
+        catch (SQLException ex){
+            throw new DatabaseException(ex, "Could not insert user %s".formatted(userName));
+        }
+    }
+
 }
