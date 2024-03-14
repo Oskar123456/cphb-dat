@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+
+<body>
+
+<a class="title-image" href="index.html" th:ref="@{/}" >
+    <img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" alt=""/>
+</a>
+
+<h1>Velkommen til <span class="fourthingsplus-text">fourthingsplus</span></h1>
+
+<div class="credentials-form">
+<form method="post">
+    <input type="text" name="username" th:value="${recentuser}" placeholder="indtast brugernavn"/>
+    <input type="password" name="pwd" placeholder="indtast kodeord">
+
+    <button type="submit" formaction="login">Log på</button>
+
+    <div>
+        <p th:text="${message}"></p>
+    </div>
+</form>
+</div>
+
+
+<div class="create-user-box">
+    <a href="createuser.html" th:ref="@{/createuser}">Ny bruger</a>
+</div>
+
+</body>
+</html>

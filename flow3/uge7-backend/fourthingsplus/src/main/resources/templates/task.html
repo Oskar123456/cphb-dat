@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>Frontpage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<a class="title-image" href="index.html" th:ref="@{/}" >
+    <img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" alt=""/>
+</a>
+
+<h1>Velkommen, <span th:text="${session.currentUser.name()}" ></span></h1>
+
+<div class="addtaskbox">
+    <form method="post">
+        <label>
+            <input type="text" name="taskname" placeholder="navn">
+            <button type="submit" formaction="addtask">Tilføj</button>
+        </label>
+    </form>
+</div>
+
+<h2>Opgaver:</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            Opgave
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    <tr th:each="task : ${taskList}" >
+        <td th:text="${task.title()}"> </td>
+        <td>
+            <form name="taskdone" method="post">
+                <input type="hidden" name="taskselected" value="" th:value="${task.taskId()}">
+                <button type="submit" formaction="taskdone">
+                    Udført
+                </button>
+            </form>
+        </td>
+        <td>
+            <form name="taskdelete" method="post">
+                <input type="hidden" name="taskselected" value="" th:value="${task.taskId()}">
+                <button type="submit" formaction="taskdelete">
+                    Slet
+                </button>
+            </form>
+        </td>
+    </tr>
+
+    </thead>
+</table>
+
+<div class="log-out" th:if="${session.currentUser != null}">
+    <p>
+    <a href="index.html" th:ref="@{/logout}">Log ud</a>
+    </p>
+</div>
+
+</body>
+</html>
