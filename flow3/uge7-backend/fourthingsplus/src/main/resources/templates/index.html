@@ -12,24 +12,21 @@
     <img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" alt=""/>
 </a>
 
-<h1>Velkommen til <span class="fourthingsplus-text">fourthingsplus</span></h1>
+<div class="loginbox" >
+<form class="credentials-form-login" method="post">
+    <input class="formtextfield"  type="text" name="username" th:value="${recentuser}" placeholder="indtast brugernavn"/>
+    <input class="formtextfield"  type="password" name="pwd" placeholder="indtast kodeord">
 
-<div class="credentials-form">
-<form method="post">
-    <input type="text" name="username" th:value="${recentuser}" placeholder="indtast brugernavn"/>
-    <input type="password" name="pwd" placeholder="indtast kodeord">
-
-    <button type="submit" formaction="login">Log på</button>
-
-    <div>
-        <p th:text="${message}"></p>
-    </div>
+    <button class="buttonpositive" type="submit" formaction="login">Log på</button>
 </form>
 </div>
 
+<div th:if="${message != null}">
+    <p class="messageoutput" th:text="${message}"></p>
+</div>
 
 <div class="create-user-box">
-    <a href="createuser.html" th:ref="@{/createuser}">Ny bruger</a>
+    <a class="buttonpositive" href="createuser.html" th:ref="@{/createuser}">Ny bruger</a>
 </div>
 
 </body>

@@ -12,13 +12,13 @@
     <img src="../public/images/fourthingsplus.png" th:src="@{/images/fourthingsplus.png}" alt=""/>
 </a>
 
-<div class="credentials-form">
-    <form method="post">
+<div>
+    <form class="credentials-form" method="post">
         <input type="text" name="username" placeholder="indtast brugernavn"/>
         <input type="password" name="pwd" placeholder="indtast kodeord">
         <input type="password" name="pwd1" placeholder="indtast kodeord igen">
 
-        <button type="submit" formaction="createuser">Log på</button>
+        <button class="buttonpositive" type="submit" formaction="createuser">Bekræft</button>
 
         <div>
             <p th:text="${message}"></p>

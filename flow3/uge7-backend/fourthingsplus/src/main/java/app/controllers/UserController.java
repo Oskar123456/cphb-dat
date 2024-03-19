@@ -9,6 +9,7 @@ import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class UserController {
     public static void addRoutes(Javalin app, ConnectionPool connPool) {
         app.get("index.html", ctx -> ctx.render("index.html"));
         app.post("login", ctx -> login(ctx, connPool));
+        app.get("home", ctx -> login(ctx, connPool));
         app.get("logout", ctx -> logout(ctx));
         app.get("createuser", ctx -> ctx.render("createuser.html"));
         app.get("createuser.html", ctx -> ctx.render("createuser.html"));
@@ -48,6 +50,7 @@ public class UserController {
     }
 
     private static void logout(Context ctx) {
+        System.out.println("logging out ");
         ctx.req().getSession().invalidate();
         ctx.render("index.html");
     }
@@ -56,13 +59,29 @@ public class UserController {
         String username = ctx.formParam("username");
         String pwd = ctx.formParam("pwd");
 
+        User user = (username != null && pwd != null) ? null : ctx.sessionAttribute("currentUser");
+
         try {
-            User user = UserMapper.login(username, pwd, connPool);
+
+            if (user == null)
+                user = UserMapper.login(username, pwd, connPool);
 
             ctx.sessionAttribute("currentUser", user);
 
             List<Task> taskList = TaskMapper.getAllTasksPerUser(user.id(), connPool);
-            ctx.attribute("taskList", taskList);
+            List<Task> taskListDone = new ArrayList<>();
+            List<Task> taskListUndone = new ArrayList<>();
+
+            for (Task t : taskList){
+                if (t.done()){
+                    taskListDone.add(t);
+                }
+                else
+                    taskListUndone.add(t);
+            }
+
+            ctx.attribute("taskList", taskListUndone);
+            ctx.attribute("taskListDone", taskListDone);
 
             ctx.render("task.html");
         } catch (DatabaseException e) {

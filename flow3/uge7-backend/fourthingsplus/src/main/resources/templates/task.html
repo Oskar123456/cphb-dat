@@ -17,54 +17,90 @@
 <div class="addtaskbox">
     <form method="post">
         <label>
-            <input type="text" name="taskname" placeholder="navn">
-            <button type="submit" formaction="addtask">Tilføj</button>
+            <input class="formtextfield" type="text" name="taskname" placeholder="navn">
+            <button class="buttonpositive" type="submit" formaction="addtask">Tilføj</button>
         </label>
     </form>
+    <p class="messageoutput" th:if="${message != null}" th:text="${message}"> </p>
 </div>
 
-<h2>Opgaver:</h2>
-
-<table>
+<div class="tasktablebox">
+    <h2 th:if="${taskList != null}">Opgaver:</h2>
+    <h2 th:if="${taskList.isEmpty()}">Ingen opgaver :)</h2>
+<table class="tasktable" th:if="${!taskList.isEmpty()}">
     <thead>
     <tr>
         <th>
             Opgave
         </th>
         <th>
-            Status
-        </th>
-        <th>
-
+            Handlinger
         </th>
     </tr>
 
     <tr th:each="task : ${taskList}" >
         <td th:text="${task.title()}"> </td>
         <td>
-            <form name="taskdone" method="post">
+            <div class="tasktableactions">
+            <form class="tasktableactionsform"  name="taskdone" method="post">
                 <input type="hidden" name="taskselected" value="" th:value="${task.taskId()}">
-                <button type="submit" formaction="taskdone">
+                <button class="tasktablebutton" type="submit" formaction="taskdone">
                     Udført
                 </button>
             </form>
-        </td>
-        <td>
-            <form name="taskdelete" method="post">
+            <form  class="tasktableactionsform" name="taskedit" method="post">
                 <input type="hidden" name="taskselected" value="" th:value="${task.taskId()}">
-                <button type="submit" formaction="taskdelete">
-                    Slet
+                <button class="tasktablebutton" type="submit" formaction="taskedit">
+                    Rediger
                 </button>
             </form>
+            </div>
         </td>
     </tr>
 
     </thead>
 </table>
 
-<div class="log-out" th:if="${session.currentUser != null}">
-    <p>
-    <a href="index.html" th:ref="@{/logout}">Log ud</a>
+<h2 th:if="${!taskListDone.isEmpty()}">Tidligere:</h2>
+
+<table class="tasktable" th:if="${!taskListDone.isEmpty()}">
+    <thead>
+    <tr>
+        <th>
+            Opgave
+        </th>
+        <th>
+            Handlinger
+        </th>
+    </tr>
+
+    <tr th:each="task : ${taskListDone}" >
+        <td th:text="${task.title()}"> </td>
+        <td>
+            <div class="tasktableactions">
+            <form class="tasktableactionsform" name="taskundone" method="post">
+                <input type="hidden" name="taskselected" value="" th:value="${task.taskId()}">
+                <button class="tasktablebutton" type="submit" formaction="taskundone">
+                    Fortryd
+                </button>
+            </form>
+            <form class="tasktableactionsform" name="taskdelete" method="post">
+                <input type="hidden" name="taskselected" value="" th:value="${task.taskId()}">
+                <button class="tasktablebutton" type="submit" formaction="taskdelete">
+                    Slet
+                </button>
+            </form>
+            </div>
+        </td>
+    </tr>
+
+    </thead>
+</table>
+</div>
+
+<div class="logoutbox"  th:if="${session.currentUser != null}">
+    <p >
+    <a class="buttonnegative" href="index.html" th:href="@{/logout}">Log ud</a>
     </p>
 </div>
 
