@@ -2,10 +2,12 @@ package app.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import app.entities.FriskForslagFoodItem;
 import app.entities.FriskForslagIngredient;
 import app.entities.FriskForslagRecipe;
+import app.entities.FriskForslagRecipeSpec;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.FriskForslagMapper;
@@ -29,36 +31,20 @@ public class FriskForslagController {
 
         if (searchString != null && !searchString.isEmpty()) {
             String ingredientList[] = searchString.split(" ");
-            HashMap<FriskForslagRecipe, Integer> recipeFreqMap = null;
+            List<FriskForslagRecipeSpec> recipeSpecs = null;
 
             try {
-                recipeFreqMap = FriskForslagMapper.ListRecipesWithNIngredients(connectionPool, ingredientList);
+                recipeSpecs = FriskForslagMapper.ListRecipesWithNIngredients(connectionPool, ingredientList);
             } catch (DatabaseException e) {
                 e.printStackTrace();
             }
-            if (recipeFreqMap == null) {
+            if (recipeSpecs == null || recipeSpecs.isEmpty()) {
                 // TODO: handle empty recommended recipe list
             }
-
-            ctx.attribute("ingredientList", ingredientList);
+            else {
+                ctx.attribute("recipeSpecs", recipeSpecs);
+            }
         }
-
-        /*
-         * DEVELOPER INFO
-         */
-        ArrayList<FriskForslagRecipe> recs = null;
-        try {
-            recs = FriskForslagMapper.ListRecipes(connectionPool);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
-
-        /*
-         * END
-         */
-
-        if (recs != null)
-            ctx.attribute("recipeList", recs);
 
         ctx.render("/friskforslag/search.html");
     }

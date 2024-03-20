@@ -31,8 +31,15 @@
         </p>
     </div>
 
-    <div class="searchresults" th:each="recipe : ${recipeList}">
-            <p class="searchresultsingle" th:text="${recipe.toString()}"></p>
+    <div th:if="${recipeSpec != null || !recipeSpecs.isEmpty()}"
+         class="searchresults"
+         th:each="recipeSpec : ${recipeSpecs}">
+            <p class="searchresultsingle" th:text="${recipeSpec.toString()}"></p>
+    </div>
+
+
+    <div th:if="${recipeSpecs == null || recipeSpecs.isEmpty()}">
+        <p class="searchresultsingle">Din søgning gav ingen resultater</p>
     </div>
 
 </div>
