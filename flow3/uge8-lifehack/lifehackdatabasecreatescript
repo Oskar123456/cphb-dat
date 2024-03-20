@@ -6,7 +6,7 @@
 -- Dumped by pg_dump version 16.1
 
 -- Started on 2024-03-19 22:12:30 UTC
-
+--
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -386,4 +386,3 @@ ALTER TABLE ONLY public.friskforslagingredient
 --
 -- PostgreSQL database dump complete
 --
-
