@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/test.dir/test.c.o -o test  -Wl,-rpath,/home/oskar/cphb-dat/extraprojects/vulkan/first/build/external/cglm external/cglm/libcglm.so.0.9.5 external/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/libvulkan.so /usr/lib/x86_64-linux-gnu/librt.a -lm -ldl 
