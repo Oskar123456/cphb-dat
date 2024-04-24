@@ -54,6 +54,25 @@ indeholder user-story og accept kriterier.
 
 Som x vil jeg y for at kunne z.
 
+- Som kunde vil jeg gerne kunne søge/sortere carporte igennem, 
+for at finde en der passer til min grund.
+
+- Som kunde vil jeg gerne kunne lægge varer i en kurv, og 
+se hvad den samlede pris er, inkl. transport, samt bestille.
+
+- Som kunde vil jeg gerne kunne se alle detaljer omkring 
+carporten, før jeg køber, f.eks. mål, pris, tegning etc.
+
+- Som kunde vil jeg gerne kunne specificere/selv sammensætte 
+en carport, som passer til lige præcis mit behov, og få 
+hjælp til sammensætningen online.
+
+- Som admin vil jeg gerne kunne sammensætte et forslag for 
+kunden på baggrund af deres bestilling, og i den forbindelse 
+se vejledende priser og alle detaljer på styklisten, samt 
+bygningsmanual/beskrivelse og bestillingsdetaljer til kunden, 
+som ikke indeholder stykliste.
+
 ##### accept kriterier
 
 Definition af done.
