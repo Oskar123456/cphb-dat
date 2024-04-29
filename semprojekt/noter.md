@@ -54,11 +54,17 @@ indeholder user-story og accept kriterier.
 
 Som x vil jeg y for at kunne z.
 
+- Som kunde : opret bruger : log ind : bestille/modtage mail.
+
 - Som kunde vil jeg gerne kunne søge/sortere carporte igennem, 
 for at finde en der passer til min grund.
 
++ Risiko ????
+
 - Som kunde vil jeg gerne kunne lægge varer i en kurv, og 
 se hvad den samlede pris er, inkl. transport, samt bestille.
+
++ Risiko: 
 
 - Som kunde vil jeg gerne kunne se alle detaljer omkring 
 carporten, før jeg køber, f.eks. mål, pris, tegning etc.
@@ -67,11 +73,17 @@ carporten, før jeg køber, f.eks. mål, pris, tegning etc.
 en carport, som passer til lige præcis mit behov, og få 
 hjælp til sammensætningen online.
 
++ Risiko: Kunden kan få en dårlig oplevelse, hvis de ikke 
+gør det ordentligt.
+
 - Som admin vil jeg gerne kunne sammensætte et forslag for 
 kunden på baggrund af deres bestilling, og i den forbindelse 
 se vejledende priser og alle detaljer på styklisten, samt 
 bygningsmanual/beskrivelse og bestillingsdetaljer til kunden, 
 som ikke indeholder stykliste.
+
++ Risiko: Svært at implementere skræddersyede tegninger / 
+manualer ???
 
 ##### accept kriterier
 
@@ -80,7 +92,7 @@ Definition af done.
 Som x der gør y sker z.
 
 Meningen er at være specifik, så vi kan teste objektivt. 
-Funktionelle krav.
+Funktionelle- og ikke-funktionelle krav.
 
 ### INTERESSENTANALYSE
 
@@ -98,4 +110,15 @@ af fordele og ulemper.
 | ekstern | grå eminence     |
 -----> (x) - indflydelse
 
+### RISIKO
 
+#### HÅNDTERING
+
+skal besvare følgende spørgsmål.
+
+1. Hvad er det vi prøver at opnå.
+2. Hvad kan påvirke projektet.
+3. Hvilke risici er vigtigst? p(x) * w(x)
+4. Hvad kan vi gøre.
+5. Virkede tiltag.
+6. Hvad har ændret sig.
