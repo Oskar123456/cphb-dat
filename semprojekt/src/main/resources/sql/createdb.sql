@@ -3,133 +3,70 @@
 BEGIN;
 
 
-ALTER TABLE IF EXISTS public.orders DROP CONSTRAINT IF EXISTS orders_bottom_id_fkey;
+CREATE TABLE IF NOT EXISTS public.address
+(
+    id character varying COLLATE pg_catalog."default" NOT NULL,
+    street character varying COLLATE pg_catalog."default",
+    "number" bigint,
+    level bigint,
+    postal_code bigint,
+    CONSTRAINT address_pkey PRIMARY KEY (id)
+);
 
-ALTER TABLE IF EXISTS public.orders DROP CONSTRAINT IF EXISTS orders_customer_id_fkey;
-
-ALTER TABLE IF EXISTS public.orders DROP CONSTRAINT IF EXISTS orders_top_id_fkey;
-
-ALTER TABLE IF EXISTS public.payment DROP CONSTRAINT IF EXISTS payment_order_id_fkey;
-
-
-
-DROP TABLE IF EXISTS public.bottom;
-
-CREATE TABLE IF NOT EXISTS public.bottom
+CREATE TABLE IF NOT EXISTS public.ansat
 (
     id bigserial NOT NULL,
-    name character varying COLLATE pg_catalog."default" NOT NULL,
-    price money NOT NULL,
-    CONSTRAINT bottom_pkey PRIMARY KEY (id),
-    CONSTRAINT bottom_name_unique UNIQUE (name)
+    email character varying COLLATE pg_catalog."default",
+    password character varying COLLATE pg_catalog."default",
+    role character varying COLLATE pg_catalog."default",
+    CONSTRAINT ansat_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS public.orders;
-
-CREATE TABLE IF NOT EXISTS public.orders
+CREATE TABLE IF NOT EXISTS public.delivery_type
 (
     id bigserial NOT NULL,
-    customer_id bigint NOT NULL,
-    create_date timestamp without time zone NOT NULL,
-    desired_date timestamp without time zone NOT NULL,
-    finish_date timestamp without time zone,
-    bot bigint NOT NULL,
-    top bigint NOT NULL,
-    quant bigint NOT NULL,
-    CONSTRAINT order_pkey PRIMARY KEY (id)
+    description character varying COLLATE pg_catalog."default",
+    CONSTRAINT delivery_type_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS public.payment;
-
-CREATE TABLE IF NOT EXISTS public.payment
+CREATE TABLE IF NOT EXISTS public.dokumentation
 (
     id bigserial NOT NULL,
-    order_id bigint NOT NULL,
-    received_date timestamp without time zone NOT NULL,
-    amount money NOT NULL,
-    CONSTRAINT payment_pkey PRIMARY KEY (id)
+    name character varying COLLATE pg_catalog."default",
+    data bytea,
+    CONSTRAINT dokumentation_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS public.top;
-
-CREATE TABLE IF NOT EXISTS public.top
+CREATE TABLE IF NOT EXISTS public.kunde
 (
     id bigserial NOT NULL,
-    name character varying COLLATE pg_catalog."default" NOT NULL,
-    price money NOT NULL,
-    CONSTRAINT top_pkey PRIMARY KEY (id),
-    CONSTRAINT top_name_unique UNIQUE (name)
+    email character varying COLLATE pg_catalog."default",
+    password character varying COLLATE pg_catalog."default",
+    CONSTRAINT kunde_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS public.users;
-
-CREATE TABLE IF NOT EXISTS public.users
+CREATE TABLE IF NOT EXISTS public.produkt
 (
-    id serial NOT NULL,
-    email character varying COLLATE pg_catalog."default" NOT NULL,
-    pwd character varying COLLATE pg_catalog."default" NOT NULL,
-    role character varying COLLATE pg_catalog."default" NOT NULL,
-    credit numeric NOT NULL,
-    CONSTRAINT customer_id PRIMARY KEY (id),
-    CONSTRAINT email_unique UNIQUE (email)
+    id bigserial NOT NULL,
+    name character varying COLLATE pg_catalog."default",
+    description character varying COLLATE pg_catalog."default",
+    documentation_id bigint,
+    specification character varying[] COLLATE pg_catalog."default",
+    links character varying[] COLLATE pg_catalog."default",
+    delivery_type bigint[],
+    CONSTRAINT produkt_pkey PRIMARY KEY (id)
 );
 
-ALTER TABLE IF EXISTS public.orders
-    ADD CONSTRAINT orders_bottom_id_fkey FOREIGN KEY (bot)
-        REFERENCES public.bottom (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.orders
-    ADD CONSTRAINT orders_customer_id_fkey FOREIGN KEY (customer_id)
-        REFERENCES public.users (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.orders
-    ADD CONSTRAINT orders_top_id_fkey FOREIGN KEY (top)
-        REFERENCES public.top (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.payment
-    ADD CONSTRAINT payment_order_id_fkey FOREIGN KEY (order_id)
-        REFERENCES public.orders (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION;
-
--- INSERTS
-
-INSERT INTO public.users(
-    id, email, pwd, role, credit)
-VALUES (DEFAULT, 'admin@mail.dk', '1', 'admin', 0);
-
-INSERT INTO public.top(
-    id, name, price)
-VALUES
-    (DEFAULT, 'Chocolate', 5.00),
-    (DEFAULT, 'Vanilla', 5.00),
-    (DEFAULT, 'Nutmeg', 5.00),
-    (DEFAULT, 'Pistacio', 6.00),
-    (DEFAULT, 'Almond', 7.00);
-
-INSERT INTO public.bottom(
-    id, name, price)
-VALUES
-    (DEFAULT, 'Chocolate', 5.00),
-    (DEFAULT, 'Blueberry', 5.00),
-    (DEFAULT, 'Raspberry', 5.00),
-    (DEFAULT, 'Crispy', 6.00),
-    (DEFAULT, 'Strawberry', 6.00),
-    (DEFAULT, 'Rum/Raisin', 7.00),
-    (DEFAULT, 'Orange', 8.00),
-    (DEFAULT, 'Lemon', 8.00),
-    (DEFAULT, 'Blue Cheese', 9.00);
-
+CREATE TABLE IF NOT EXISTS public.vare
+(
+    id bigserial NOT NULL,
+    length double precision,
+    height double precision,
+    weight double precision,
+    price numeric,
+    name character varying COLLATE pg_catalog."default",
+    description character varying COLLATE pg_catalog."default",
+    extra_info character varying[] COLLATE pg_catalog."default",
+    CONSTRAINT vare_pkey PRIMARY KEY (id)
+);
 END;
