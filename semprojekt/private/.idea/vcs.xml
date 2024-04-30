@@ -8,6 +8,5 @@
     <mapping directory="$PROJECT_DIR$/../flow2/uge5-jbdc/dat2-sportsclub" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../flow3/uge10-11-cupcake/cupcake" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../flow3/uge8-lifehack/lifehack_spring_2024" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/public" vcs="Git" />
   </component>
 </project>
