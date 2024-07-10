@@ -5,23 +5,23 @@ static const char *geometry_dir;
 static const char *fragment_dir;
 
 void
-shaderutilsSetPathVert(const char *path)
+shader_utils_set_shader_dir_vertex(const char *path)
 {
     vertex_dir = path;
 }
 void
-shaderutilsSetPathGeom(const char *path)
+shader_utils_set_shader_dir_geometry(const char *path)
 {
     geometry_dir = path;
 }
 void
-shaderutilsSetPathFrag(const char *path)
+shader_utils_set_shader_dir_fragment(const char *path)
 {
     fragment_dir = path;
 }
 
 u32
-shaderutilsCompile(u32 shader_type, const char *src)
+shader_utils_compile(u32 shader_type, const char *src)
 {
     const char *dir = NULL;
     if (shader_type == GL_VERTEX_SHADER)
@@ -71,14 +71,14 @@ shaderutilsCompile(u32 shader_type, const char *src)
 }
 
 void 
-shaderutilsDelete(u32 shaders_count, u32 *shaders)
+shader_utils_delete_shaders(u32 shaders_count, u32 *shaders)
 {
     for (int i = 0; i < shaders_count; ++i)
         glDeleteShader(shaders[i]);
 }
 
 u32 
-shaderutilsLinkProgram(u32 shaders_count, u32 *shaders)
+shader_utils_link_program(u32 shaders_count, u32 *shaders)
 {
     u32 shader_program = glCreateProgram();
     for (int i = 0; i < shaders_count; ++i)
@@ -100,10 +100,10 @@ u32
 shaderutilsMakeProgram(const char *vertName, const char *fragName)
 {
     u32 shaders[] = {
-        shaderutilsCompile(GL_VERTEX_SHADER, vertName),
-        shaderutilsCompile(GL_FRAGMENT_SHADER, fragName),
+        shader_utils_compile(GL_VERTEX_SHADER, vertName),
+        shader_utils_compile(GL_FRAGMENT_SHADER, fragName),
     };
-    u32 program = shaderutilsLinkProgram(2, shaders);
-    shaderutilsDelete(2, shaders);
+    u32 program = shader_utils_link_program(2, shaders);
+    shader_utils_delete_shaders(2, shaders);
     return program;
 }

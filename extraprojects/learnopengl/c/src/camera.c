@@ -1,61 +1,63 @@
 /*
  *
  * */
+typedef enum CamDirection {
+    DIR_FORWARD,
+    DIR_BACKWARD,
+    DIR_LEFT,
+    DIR_RIGHT
+} CamDirection;
 
-typedef union CAM_UVEC3 {
-  vec3 vec;
-  struct {
-    float x;
-    float y;
-    float z;
-  };
-} CAM_UVEC3;
+typedef enum CamType {
+    FLYING,
+    FPS
+} CamType;
 
-struct Camera {
-    CAM_UVEC3 pos;
-    CAM_UVEC3 dir;
-    CAM_UVEC3 at;
-    CAM_UVEC3 up;
-    CAM_UVEC3 right;
-    CAM_UVEC3 left;
-    CAM_UVEC3 up_world;
+typedef struct Camera {
+    vec3s pos;
+    vec3s dir;
+    vec3s at;
+    vec3s up;
+    vec3s right;
+    vec3s left;
+    vec3s up_world;
 
     float yaw;   // around y-axis
     float pitch; // around x-axis
     bool  restrict_pitch;
 
-    float speedCurrent;
-    float speedRegular;
-    float speedSprint;
+    float speed;
+    float speed_default;
+    float speed_sprint;
     float sens;
-    float zoom;
+    union {
+        float zoom;
+        float fov;
+    };
+
+    bool is_sprinting;
 
     float draw_dist;
 
-    u32 camtype;
-};
-
-enum cam_mvmt {
-    DIR_FORWARD,
-    DIR_BACKWARD,
-    DIR_LEFT,
-    DIR_RIGHT
-};
-
-enum cam_types {
-    FLYING,
-    FPS
-};
+    CamType type;
+} Camera;
 
 void
-cam_get_view(struct Camera *c, mat4 *dest)
+camGetView(Camera *c, mat4 *dest)
 {
-    glm_vec3_add(c->pos.vec, c->dir.vec, c->at.vec);
-    glm_lookat(c->pos.vec, c->at.vec, c->up.vec, *dest);
+    glm_vec3_add(c->pos.raw, c->dir.raw, c->at.raw);
+    glm_lookat(c->pos.raw, c->at.raw, c->up.raw, *dest);
+}
+
+mat4s
+camGetViews(Camera *c)
+{
+    c->at = vec3_add(c->pos, c->dir);
+    return glms_lookat(c->pos, c->at, c->up);
 }
 
 void
-cam_update_dir(struct Camera *c, double x_offset, double y_offset)
+camLook(Camera *c, double x_offset, double y_offset)
 {
 //    printf("cam_update_dir: %f %f\n", x_offset, y_offset);
 
@@ -75,55 +77,82 @@ cam_update_dir(struct Camera *c, double x_offset, double y_offset)
     dir[2] = sin(glm_rad(c->yaw) * cos(glm_rad(c->pitch)));
     glm_vec3_normalize(dir);
     
-    glm_vec3_add(c->pos.vec, dir, c->at.vec);
-    glm_vec3_copy(dir, c->dir.vec);
+    glm_vec3_add(c->pos.raw, dir, c->at.raw);
+    glm_vec3_copy(dir, c->dir.raw);
 
-    glm_vec3_cross(c->dir.vec, c->up_world.vec, c->left.vec);
-    glm_vec3_cross(c->left.vec, c->dir.vec, c->up.vec);
-    glm_vec3_scale(c->left.vec, -1.0, c->right.vec);
+    glm_vec3_cross(c->dir.raw, c->up_world.raw, c->right.raw);
+    glm_vec3_cross(c->right.raw, c->dir.raw, c->up.raw);
+    glm_vec3_scale(c->right.raw, -1.0, c->left.raw);
 
-    glm_vec3_normalize(c->up.vec);
-    glm_vec3_normalize(c->right.vec);
-    glm_vec3_normalize(c->left.vec);
+    glm_vec3_normalize(c->up.raw);
+    glm_vec3_normalize(c->right.raw);
+    glm_vec3_normalize(c->left.raw);
 }
 
 void
-cam_update_zoom(struct Camera *c, double x_offset, double y_offset)
+camZoom(Camera *c, double x_offset, double y_offset)
 {
-    c->zoom -= y_offset;
-    if (c->zoom < 1.0)
+    c->zoom -= 1 * y_offset;
+    if (c->zoom < 1.0){
         c->zoom = 1.0;
-    if (c->zoom > 45.0)
+    }
+    if (c->zoom > 45.0){
         c->zoom = 45.0;
+    }
 }
 
 void
-cam_update_move(struct Camera *c, enum cam_mvmt dir, u32 t)
+camMove(Camera *c, CamDirection dir, u32 t)
 {
     if (dir == DIR_FORWARD || dir == DIR_BACKWARD){
-        vec3 dist;
-        glm_vec3_scale(c->dir.vec, c->speedCurrent, dist);
-        if (c->camtype == FPS)
-            dist[1] = 0.0;
+        vec3s dist = vec3_scale(c->dir, c->speed);
         if (dir == DIR_FORWARD)
-            glm_vec3_add(c->pos.vec, dist, c->pos.vec);
+            c->pos = vec3_add(c->pos, dist);
         else
-            glm_vec3_sub(c->pos.vec, dist, c->pos.vec);
+            c->pos = vec3_sub(c->pos, dist);
     }
     if (dir == DIR_LEFT || dir == DIR_RIGHT){
-        vec3 dist;
+        vec3s dist;
         if (dir == DIR_LEFT)
-            glm_vec3_scale(c->right.vec, c->speedCurrent, dist);
+            dist = vec3_scale(c->left, c->speed);
         else
-            glm_vec3_scale(c->left.vec, c->speedCurrent, dist);
-        if (c->camtype == FPS)
-            dist[1] = 0.0;
-        glm_vec3_add(c->pos.vec, dist, c->pos.vec);
+            dist = vec3_scale(c->right, c->speed);
+        c->pos = vec3_add(c->pos, dist);
     }
-
+    // UPDATE "AT"
+    c->at = vec3_add(c->pos, c->dir);
 }
 
+void
+camToggleSprint(Camera *c)
+{
+    c->is_sprinting = !c->is_sprinting;
+    c->speed = (c->is_sprinting) ? c->speed_sprint : c->speed_default;
+}
 
+void
+camInit(Camera *c)
+{
+    c->dir = (vec3s){0, 0, 1};
+    c->up = (vec3s){0, 1, 0};
+    c->up_world = (vec3s){0, 1, 0};
+    c->pos = (vec3s){0, 0, -50};
+
+    glm_vec3_cross(c->dir.raw, c->up_world.raw, c->right.raw);
+    glm_vec3_cross(c->right.raw, c->dir.raw, c->up.raw);
+    glm_vec3_scale(c->right.raw, -1.0, c->left.raw);
+
+    glm_vec3_normalize(c->up.raw);
+    glm_vec3_normalize(c->right.raw);
+    glm_vec3_normalize(c->left.raw);
+
+    c->speed = 1.00;
+    c->speed_default = 1.00;
+    c->speed_sprint = 4.00;
+    c->fov = 45.0;
+    c->draw_dist = 5000.0;
+    camZoom(c, 0, 0);
+}
 
 
 

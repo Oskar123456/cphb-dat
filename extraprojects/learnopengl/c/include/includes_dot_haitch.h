@@ -41,7 +41,8 @@
  * */
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
-#include "../external/cglm/include/cglm/cglm.h"
+#define CGLM_OMIT_NS_FROM_STRUCT_API
+#include "../external/cglm/include/cglm/struct.h"
 /*
  * defines
  * */
