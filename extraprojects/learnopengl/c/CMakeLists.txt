@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8.2)
 
 project (main LANGUAGES C)
 
-add_executable(${PROJECT_NAME} src/main.c src/glad.c src/shader_utils.c)
+add_executable(${PROJECT_NAME} src/main_game.c src/glad.c src/shader_utils.c)
 
 # DEBUG ######
 if(CMAKE_BUILD_TYPE MATCHES Debug)
